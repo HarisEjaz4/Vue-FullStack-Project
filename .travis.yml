@@ -1,0 +1,37 @@
+language: node_js
+node_js:
+  - "6"
+before_install:
+  - git config --global push.default matching
+  - git config --global user.name "erguotou"
+  - git config --global user.email "erguotou525@gmail.com"
+install:
+  - npm install -g vue-cli
+  - npm install
+script:
+  - rm -rf ../vf-backend
+  - rm -rf ../vf-mock
+  - node script/generate.js
+  - echo 'shell pwd'
+  - pwd
+  - cd ../vf-mock
+  - sed -i '4d' .gitignore
+  - npm install
+  - npm run remove:mock
+  - npm run build
+  - git init
+  - git add -A
+  - git commit -m "Auto commit"
+  - git push -u https://$GH_TOKEN@github.com/erguotou520/vue-fullstack.git HEAD:vf-mock --force
+  - cd ../vf-backend
+  - sed -i '4d' .gitignore
+  - npm install
+  - npm run build
+  - git init
+  - git add -A
+  - git commit -m "Auto commit"
+  - git push -u https://$GH_TOKEN@github.com/erguotou520/vue-fullstack.git HEAD:vf-backend --force
+cache:
+  directories:
+    - node_modules
+    - $(npm config get prefix)/vue-cli

@@ -1,0 +1,25 @@
+{
+  "name": "vue-fullstack",
+  "version": "0.2.1",
+  "license": "MIT",
+  "keywords": [
+    "vue",
+    "vuejs",
+    "vuex",
+    "vue-router",
+    "vue-i18n",
+    "vue-resource",
+    "fullstack",
+    "mongodb",
+    "mongoose",
+    "socket.io",
+    "element",
+    "element-ui",
+    "mock server"
+  ],
+  "description": "This project's target is to helper people to create a Reactivity, Realtime, User friendly backend system",
+  "author": "erguotou525@gmail.com",
+  "devDependencies": {
+    "suppose": "^0.6.1"
+  }
+}

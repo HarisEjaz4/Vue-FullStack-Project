@@ -1,0 +1,4 @@
+.DS_Store
+node_modules/
+npm-debug.log
+{{#if_eq mock 'backend'}}client/{{/if_eq}}dist
